@@ -16,8 +16,7 @@ void error_message(const char *message);
 */
 int main(int argc, char *argv[])
 {
-	int width, height, i, j;
-	double elevation[8][8], terrain[8][8][2] = { 0 }, basex, basey, x, y;
+	double elevation[8][8], terrain[8][8][2] = {{{0}}}, basex, basey;
 	double inclination = 0.7, max_elev = 0;
 	FILE *elevs;
 	SDL_Window *window = NULL;
@@ -128,7 +127,7 @@ void draw(double terrain[8][8][2], double elevation[8][8], double inclination,
 	double max, SDL_Renderer *renderer, SDL_DisplayMode Display, double basey)
 {
 	double width = Display.w, x, display[8][8][2];
-	double height = Display.h, y, z, center;
+	double height = Display.h, y, z;
 	int i, j;
 
 	max = (max + height - 4 * (1 - inclination) * basey) / 2;
